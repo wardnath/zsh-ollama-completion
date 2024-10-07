@@ -1,5 +1,3 @@
-#compdef ollama
-
 _ollama() {
   local curcontext="$curcontext" state line
   typeset -A opt_args
@@ -31,7 +29,7 @@ _ollama() {
       case $line[1] in
         (run|pull|show|rm|cp)
           local -a models
-          models=(${(f)"$(ollama list 2>/dev/null | tail -n +2 | awk -F'\t' '{gsub(/ +$/, "", $1); print $1}')"})
+          models=(${(f)"$(ollama list 2>/dev/null | tail -n +2 | awk -F '[ ]{2,}' '{print $1}')"})
           compadd -a models
           ;;
         (create)
