@@ -1,3 +1,5 @@
+#compdef ollama
+
 _ollama() {
   local curcontext="$curcontext" state line
   typeset -A opt_args
